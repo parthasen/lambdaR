@@ -5,6 +5,6 @@
 #'
 #'@export
 Reduce_ <- function(data, ..., init, right = FALSE, accumulate = FALSE) {
-  func <- lambda(...)
+  func <- lambda(..., envir = parent.frame())
   Reduce(f=func, x=data, init=init, right=right, accumulate=accumulate)
 }

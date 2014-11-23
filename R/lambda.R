@@ -1,9 +1,10 @@
 #'Lambda function
 #'
 #'@param ... lambda expression.
+#'@param envir environment.
 #'
 #'@export
-lambda <- function(...) {
+lambda <- function(..., envir = parent.frame()) {
   args <- lazyeval::lazy_dots(...)
   args_len <- length(args)
   args <- Map(function(x) x$expr, args)
@@ -18,14 +19,14 @@ lambda <- function(...) {
       expr <- Reduce(function(expr,var) stringr::str_replace(expr, "\\._", var), vars, expr)
       vars_str = paste0(vars, collapse=",")
       func_str <- sprintf("function(%s) %s", vars_str, expr)
-      eval(parse(text=func_str), envir = parent.frame())
+      eval(parse(text=func_str), envir = envir)
     } else {
-      func <- eval(args[[1]], envir = parent.frame())
+      func <- eval(args[[1]], envir = envir)
       if(is.function(func)) {
         func
       } else {
         func_str <- sprintf("function() %s", expr)
-        eval(parse(text=func_str), envir = parent.frame())
+        eval(parse(text=func_str), envir = envir)
       }
     }
   } else {
@@ -36,6 +37,6 @@ lambda <- function(...) {
                    var, 
                    paste(paste(vars, collapse=","), var, sep=","))
     fun_str <- sprintf("function(%s) %s", vars, expr)
-    eval(parse(text=fun_str), envir = parent.frame())
+    eval(parse(text=fun_str), envir = envir)
   }
 }

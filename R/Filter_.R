@@ -5,6 +5,6 @@
 #'
 #'@export
 Filter_ <- function(data, ...) {
-  func <- lambda(...)
+  func <- lambda(..., envir = parent.frame())
   Filter(func, data)
 }

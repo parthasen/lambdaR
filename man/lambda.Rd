@@ -3,10 +3,12 @@
 \alias{lambda}
 \title{Lambda function}
 \usage{
-lambda(...)
+lambda(..., envir = parent.frame())
 }
 \arguments{
 \item{...}{lambda expression.}
+
+\item{envir}{environment.}
 }
 \description{
 Lambda function

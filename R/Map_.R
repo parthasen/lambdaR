@@ -5,6 +5,6 @@
 #'
 #'@export
 Map_ <- function(data, ...) {
-  func <- lambda(...)
+  func <- lambda(..., envir = parent.frame())
   Map(func, data)
 }
