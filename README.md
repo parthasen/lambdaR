@@ -1,11 +1,11 @@
-# Lambda expressions in R
+# Lambda expression in R
 Koji MAKIYAMA  
 
 
 
 ## Overture
 
-With this package, you can use lambda expressions.
+With this package, you can use lambda expression.
 
 
 ```r
@@ -18,7 +18,7 @@ library(dplyr)
 ## [1] 220
 ```
 
-You can use placeholder.
+And you can use placeholder.
 
 
 ```r
@@ -28,8 +28,6 @@ You can use placeholder.
 ```
 ## [1] 220
 ```
-
-And You can write like below.
 
 
 ```r
