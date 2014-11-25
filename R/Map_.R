@@ -1,10 +1,12 @@
-#'Map function for lambda expression(unary)
+#'Map function for lambda expression
 #'
 #'@param data a vector.
-#'@param ... lambda expression(unary).
+#'@param ... lambda expression.
 #'
 #'@export
 Map_ <- function(data, ...) {
-  func <- lambda(..., envir = parent.frame())
-  Map(func, data)
+  if(!is.list(data)) data <- list(data)
+  func <- lambda(...)
+  args <- c(f=func, data)
+  do.call(Map, args)
 }
