@@ -3,9 +3,9 @@ Koji MAKIYAMA
 
 
 
-## Overture
+## Overview
 
-With this package, you can use lambda expressions.
+With this package, you can use lambda expressions in R:
 
 
 ```r
@@ -18,7 +18,7 @@ library(dplyr)
 ## [1] 220
 ```
 
-You can use placeholder.
+You can use placeholders:
 
 
 ```r
@@ -29,7 +29,7 @@ You can use placeholder.
 ## [1] 220
 ```
 
-And You can write like below.
+And you can write like below:
 
 
 ```r
@@ -51,3 +51,82 @@ install.packages("devtools") # if you have not installed "devtools" package
 devtools::install_github("hoxo-m/lambdaR")
 ```
 
+## Usage
+
+### lambda()
+
+`lambda()` function is to enable using lambda expressions in R:
+
+
+```r
+increment <- lambda(x: x + 1)
+add <- lambda(x,y: x + y)
+```
+
+That allows to redefine higher order functions using lambda expressions.
+
+### Application
+
+We redefined higher order functions:
+
+- `Filter()` to `Filter_()`
+- `Map()` to `Map_()`
+- `Reduce()` to `Reduce_()`
+
+You can input lambda expressions to these functions:
+
+
+```r
+1:10 %>% Filter_(x: x %% 2 == 0)
+```
+
+```
+## [1]  2  4  6  8 10
+```
+
+
+```r
+1:10 %>% Map_(x: x ** 2) %>% unlist
+```
+
+```
+##  [1]   1   4   9  16  25  36  49  64  81 100
+```
+
+
+```r
+1:10 %>% Reduce_(x,y: x + y)
+```
+
+```
+## [1] 55
+```
+
+And also you can use placeholders:
+
+
+```r
+1:10 %>% Filter_(._ %% 2 == 0)
+```
+
+```
+## [1]  2  4  6  8 10
+```
+
+
+```r
+1:10 %>% Map_(._ ** 2) %>% unlist
+```
+
+```
+##  [1]   1   4   9  16  25  36  49  64  81 100
+```
+
+
+```r
+1:10 %>% Reduce_(._ + ._)
+```
+
+```
+## [1] 55
+```

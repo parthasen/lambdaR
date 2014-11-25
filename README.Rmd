@@ -10,9 +10,9 @@ output:
 knitr::opts_chunk$set(echo=TRUE, warning=FALSE, message=FALSE)
 ```
 
-## Overture
+## Overview
 
-With this package, you can use lambda expressions.
+With this package, you can use lambda expressions in R:
 
 ```{r}
 library(lambdaR)
@@ -20,13 +20,13 @@ library(dplyr)
 1:10 %>% Filter_(x: x %% 2 == 0) %>% Map_(x: x ** 2) %>% Reduce_(x,y: x + y)
 ```
 
-You can use placeholder.
+You can use placeholders:
 
 ```{r}
 1:10 %>% Filter_(._ %% 2 == 0) %>% Map_(._ ** 2) %>% Reduce_(._ + ._)
 ```
 
-And You can write like below.
+And you can write like below:
 
 ```{r}
 is_even <- lambda(._ %% 2 == 0)
@@ -42,3 +42,51 @@ install.packages("devtools") # if you have not installed "devtools" package
 devtools::install_github("hoxo-m/lambdaR")
 ```
 
+## Usage
+
+### lambda()
+
+`lambda()` function is to enable using lambda expressions in R:
+
+```{r}
+increment <- lambda(x: x + 1)
+add <- lambda(x,y: x + y)
+```
+
+That allows to redefine higher order functions using lambda expressions.
+
+### Application
+
+We redefined higher order functions:
+
+- `Filter()` to `Filter_()`
+- `Map()` to `Map_()`
+- `Reduce()` to `Reduce_()`
+
+You can input lambda expressions to these functions:
+
+```{r}
+1:10 %>% Filter_(x: x %% 2 == 0)
+```
+
+```{r}
+1:10 %>% Map_(x: x ** 2) %>% unlist
+```
+
+```{r}
+1:10 %>% Reduce_(x,y: x + y)
+```
+
+And also you can use placeholders:
+
+```{r}
+1:10 %>% Filter_(._ %% 2 == 0)
+```
+
+```{r}
+1:10 %>% Map_(._ ** 2) %>% unlist
+```
+
+```{r}
+1:10 %>% Reduce_(._ + ._)
+```
