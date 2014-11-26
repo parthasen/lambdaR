@@ -95,6 +95,15 @@ You can input lambda expressions to these functions:
 
 
 ```r
+list(1:5, 6:10) %>% Map_(x,y: x + y) %>% unlist
+```
+
+```
+## [1]  7  9 11 13 15
+```
+
+
+```r
 1:10 %>% Reduce_(x,y: x + y)
 ```
 
@@ -120,6 +129,15 @@ And also you can use placeholders:
 
 ```
 ##  [1]   1   4   9  16  25  36  49  64  81 100
+```
+
+
+```r
+list(1:5, 6:10) %>% Map_(._ + ._) %>% unlist
+```
+
+```
+## [1]  7  9 11 13 15
 ```
 
 
