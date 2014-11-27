@@ -9,9 +9,9 @@ test_that("two variable", {
 })
 
 test_that("one variable with placeholder", {
-  expect_equal(lambda(._ + 1), function(x1) x1 + 1)
+  expect_equal(lambda(._ + 1), function(._1) ._1 + 1)
 })
 
 test_that("two variable with placeholder", {
-  expect_equal(lambda(._ + ._), function(x1,x2) x1 + x2)
+  expect_equal(lambda(._ + ._), function(._1,._2) ._1 + ._2)
 })

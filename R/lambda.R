@@ -15,8 +15,9 @@ lambda <- function(..., envir = parent.frame()) {
   } else if(args_len == 1 && !stringr::str_detect(expr, ":")) {
     if(stringr::str_detect(expr, "\\._")) {
       var_count <- stringr::str_count(expr, "\\._")
-      vars <- paste0("x", seq_len(var_count))
-      expr <- Reduce(function(expr,var) stringr::str_replace(expr, "\\._", var), vars, expr)
+      vars <- paste0("._", seq_len(var_count))
+      expr <- stringr:::str_replace_all(expr, "\\._", "######")
+      expr <- Reduce(function(expr,var) stringr::str_replace(expr, "######", var), vars, expr)
       vars_str = paste0(vars, collapse=",")
       func_str <- sprintf("function(%s) %s", vars_str, expr)
       eval(parse(text=func_str), envir = envir)
