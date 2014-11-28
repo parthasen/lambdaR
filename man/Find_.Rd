@@ -11,7 +11,7 @@ Find_(data, ..., right = FALSE, nomatch = NULL)
 \item{...}{lambda expression(unary).}
 }
 \value{
-an index.
+an obejct.
 }
 \description{
 Find function for lambda expression
