@@ -10,6 +10,9 @@ a_reduce(data, ..., init, right = FALSE, accumulate = FALSE)
 
 \item{...}{lambda expression(binary).}
 }
+\value{
+a value.
+}
 \description{
 Reduce function for lambda expression
 }

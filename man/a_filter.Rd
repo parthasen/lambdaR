@@ -10,6 +10,9 @@ a_filter(data, ...)
 
 \item{...}{lambda expression(unary).}
 }
+\value{
+a vector.
+}
 \description{
 Filter function for lambda expression
 }
