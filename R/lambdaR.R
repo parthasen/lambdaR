@@ -1,8 +1,8 @@
 #'lambdaR
 #'
-#'Lambda expression in R
+#'Lambda expressions in R
 #'
-#'@name lamndaR
+#'@name lambdaR
 #'@docType package
 #'@import lazyeval stringr
 NULL
