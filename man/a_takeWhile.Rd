@@ -19,6 +19,6 @@ takeWhile function for lambda expression
 \examples{
 library(lambdaR)
 library(dplyr)
-1:10 \%>\% a_takeWhile(x: x \%\% 2 == 0)
+1:10 \%>\% a_takeWhile(x: x < 3)
 }
 
