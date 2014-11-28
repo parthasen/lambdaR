@@ -37,7 +37,7 @@ lambda <- function(..., envir = parent.frame()) {
     vars <- ifelse(is.null(vars), 
                    var, 
                    paste(paste(vars, collapse=","), var, sep=","))
-    fun_str <- sprintf("function(%s) %s", vars, expr)
-    eval(parse(text=fun_str), envir = envir)
+    func_str <- sprintf("function(%s) %s", vars, expr)
+    eval(parse(text=func_str), envir = envir)
   }
 }
