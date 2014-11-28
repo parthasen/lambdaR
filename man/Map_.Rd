@@ -10,6 +10,9 @@ Map_(data, ...)
 
 \item{...}{lambda expression.}
 }
+\value{
+a list.
+}
 \description{
 Map function for lambda expression
 }
