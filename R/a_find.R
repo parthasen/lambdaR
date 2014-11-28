@@ -3,7 +3,7 @@
 #'@param data a vector.
 #'@param ... lambda expression(unary).
 #'
-#'@return an index.
+#'@return an obejct.
 #'
 #'@export
 a_find <- function(data, ..., right = FALSE, nomatch = NULL) {
@@ -16,7 +16,7 @@ a_find <- function(data, ..., right = FALSE, nomatch = NULL) {
 #'@param data a vector.
 #'@param ... lambda expression(unary).
 #'
-#'@return an index.
+#'@return an obejct.
 #'
 #'@export
 Find_ <- a_find
