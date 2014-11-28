@@ -8,7 +8,8 @@ Maintainer: Koji MAKIYAMA <hoxo.smile@gmail.com>
 Description: Lambda expressions in R
 License: MIT
 Suggests:
-    testthat
+    testthat,
+    dplyr
 Imports:
     lazyeval,
     stringr

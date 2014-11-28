@@ -16,4 +16,9 @@ a vector.
 \description{
 Filter function for lambda expression
 }
+\examples{
+library(lambdaR)
+library(dplyr)
+1:10 \%>\% Filter_(x: x \%\% 2 == 0)
+}
 

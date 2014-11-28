@@ -5,6 +5,11 @@
 #'
 #'@return a vector.
 #'
+#'@examples
+#'library(lambdaR)
+#'library(dplyr)
+#'1:10 %>% a_filter(x: x %% 2 == 0)
+#'
 #'@export
 a_filter <- function(data, ...) {
   func <- lambda(..., envir = parent.frame())
@@ -17,6 +22,11 @@ a_filter <- function(data, ...) {
 #'@param ... lambda expression(unary).
 #'
 #'@return a vector.
+#'
+#'@examples
+#'library(lambdaR)
+#'library(dplyr)
+#'1:10 %>% Filter_(x: x %% 2 == 0)
 #'
 #'@export
 Filter_ <- a_filter
