@@ -12,6 +12,8 @@ lambda <- function(..., envir = parent.frame()) {
   expr <- as.character(args[length(args)])
   if(args_len == 0) {
     function() {}
+  } else if(stringr::str_detect(expr, "(Negate_|a_negate)")) {
+    eval(parse(text=expr), envir = envir)
   } else if(args_len == 1 && !stringr::str_detect(expr, ":")) {
     if(stringr::str_detect(expr, "\\._")) {
       var_count <- stringr::str_count(expr, "\\._")
