@@ -32,3 +32,13 @@ Map_ <- a_map
 a_mapu <- function(data, ...) {
   unlist(a_map(data, ...))
 }
+
+#'Map function for lambda expression with unlisted output
+#'
+#'@param data a vector.
+#'@param ... lambda expression.
+#'
+#'@return a vector.
+#'
+#'@export
+Mapu_ <- a_mapu
