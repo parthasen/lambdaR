@@ -102,7 +102,7 @@ You can input lambda expressions to these functions:
 
 
 ```r
-list(1:5, 6:10) %>% Map_(x,y: x + y) %>% unlist
+list(1:5, 6:10) %>% Map2_(x,y: x + y) %>% unlist
 ```
 
 ```
@@ -177,7 +177,7 @@ And also you can use placeholders:
 
 
 ```r
-list(1:5, 6:10) %>% Map_(._ + ._) %>% unlist
+list(1:5, 6:10) %>% Map2_(._ + ._) %>% unlist
 ```
 
 ```
