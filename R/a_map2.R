@@ -8,7 +8,7 @@
 #'@export
 a_map2 <- function(data, ...) {
   if(!is.list(data)) data <- list(data)
-  func <- lambda(...)
+  func <- lambda(..., envir=parent.frame())
   args <- c(f=func, data)
   do.call(Map, args)
 }
