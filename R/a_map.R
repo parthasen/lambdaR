@@ -7,7 +7,7 @@
 #'
 #'@export
 a_map <- function(data, ...) {
-  func <- lambda(...)
+  func <- lambda(..., envir=parent.frame())
   Map(func, data)
 }
 
@@ -30,7 +30,8 @@ Map_ <- a_map
 #'
 #'@export
 a_mapu <- function(data, ...) {
-  unlist(a_map(data, ...))
+  func <- lambda(..., envir=parent.frame())
+  unlist(Map(func, data))
 }
 
 #'Map function for lambda expression with unlisted output
